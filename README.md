@@ -1,9 +1,13 @@
 # Docker Course 🐋
 
 ![Image](https://miro.medium.com/max/336/1*glD7bNJG3SlO0_xNmSGPcQ.png)
-
-I'm learning Docker from this  [YouTube Link](https://www.youtube.com/watch?v=9zUHg7xjIqQ&t=2694s)
 <br>
+img src: https://miro.medium.com/max/336/1*glD7bNJG3SlO0_xNmSGPcQ.png
+
+I'm learning Docker from this  [YouTube](https://www.youtube.com/watch?v=9zUHg7xjIqQ&t=2694s)
+<br>
+
+---
 
 ### 1: Pull Image & View
 
@@ -171,16 +175,16 @@ workaround = read-only
 docker run -v ${pwd}:/app:ro -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image
 ```
 
-![](@attachment/Clipboard_2021-05-25-02-13-22.png)
+![Image](attachments/Clipboard_2021-05-25-02-13-22.png)
 
 
 Environment variables
 ---
 เดิม
-![](@attachment/Clipboard_2021-05-25-02-16-42.png)
+![Image](attachments/Clipboard_2021-05-25-02-16-42.png)
 
 ตอนนี้
-![](@attachment/Clipboard_2021-05-25-02-18-17.png)
+![Image](attachments/Clipboard_2021-05-25-02-18-17.png)
 
 build ใหม่
 ``` docker build -t node-app-image .```
@@ -191,11 +195,11 @@ code ใน index.js แทบไม่ต้องเปลี่ยน เพ�
 docker run -v ${pwd}:/app:ro -v /app/node_modules --env PORT=4000 -p 3000:4000 -d --name node-app node-app-image
 ```
 
-![](@attachment/Clipboard_2021-05-25-02-25-03.png)
+![Image](attachments/Clipboard_2021-05-25-02-25-03.png)
 
 ```printenv```
 
-![](@attachment/Clipboard_2021-05-25-02-27-28.png)
+![Image](attachments/Clipboard_2021-05-25-02-27-28.png)
 
 
 ***
@@ -217,7 +221,7 @@ docker run -v ${pwd}:/app:ro -v /app/node_modules --env-file ./.env -p 3000:4000
 
 ```docker volume ls```
 
-![](@attachment/Clipboard_2021-05-25-23-42-15.png)
+![Image](attachments/Clipboard_2021-05-25-23-42-15.png)
 
 จะเห็นว่า volume เต็มไปหมด ซึ่งเกิดจาก ```-v /app/node_modules``` ที่เป็น anonymous volume
 แม้เราจะลบ container ไปแล้ว แต่ volume ยัง persist อยู่
@@ -246,7 +250,7 @@ Docker-compose: When command is way too long...
 
 [Docker Compose version compatability matrix](https://docs.docker.com/compose/compose-file/compose-versioning/)
 
-![](@attachment/Clipboard_2021-05-26-01-12-13.png)
+![Image](attachments/Clipboard_2021-05-26-01-12-13.png)
 
 ```yml
 version: "3"
@@ -277,7 +281,7 @@ services:
 
 ```docker-compose up -d```
 
-![](@attachment/Clipboard_2021-05-26-00-47-28.png)
+![Image](attachments/Clipboard_2021-05-26-00-47-28.png)
 
 name convention = [PROJECT FOLDER_SERVICE NAME]
 
@@ -292,7 +296,7 @@ name convention = [PROJECT FOLDER_SERVICE NAME]
 
 (also delete ano volume)
 
-![](@attachment/Clipboard_2021-05-26-00-54-15.png)
+![Image](attachments/Clipboard_2021-05-26-00-54-15.png)
 
 
 
@@ -300,7 +304,7 @@ name convention = [PROJECT FOLDER_SERVICE NAME]
 - เพราะ docker compose จะเช็คแค่ว่า มี image เดิมอยู่ไหม 
 - ถึงแม้จะเปลี่ยน code อะไร เช่น เปลี่ยน port ใน Dockerfile  เวลา ```docker-compose up -d```  มันก็ไม่ได้จะ Rebuild image ให้เรานะ 🤔🤔
 
-![](@attachment/Clipboard_2021-05-26-00-57-11.png)
+![Image](attachments/Clipboard_2021-05-26-00-57-11.png)
 
 ต้องเพิ่ม ```--build เข้าไป```
 
@@ -327,7 +331,7 @@ docker-compose overwrite Dockerfile ได้
 เช่น ```command: npm run dev```
 
 ***
-![](@attachment/Clipboard_2021-05-26-01-25-58.png)
+![Image](attachments/Clipboard_2021-05-26-01-25-58.png)
 
 <br>
 
@@ -355,7 +359,7 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -d
 
 * [x] **อย่าลืม .dockerignore**
 
-![](@attachment/Clipboard_2021-05-26-01-49-30.png)
+![Image](attachments/Clipboard_2021-05-26-01-49-30.png)
 
 
 
@@ -365,25 +369,25 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -d
 
 เปลืองที่ + ไม่จำเป็น
 
-![](@attachment/Clipboard_2021-05-26-01-57-27.png)
+![Image](attachments/Clipboard_2021-05-26-01-57-27.png)
 
 
 เพิ่ม ```--only=production``` ใน Dockerfile
 
-![](@attachment/Clipboard_2021-05-26-01-56-33.png)
+![Image](attachments/Clipboard_2021-05-26-01-56-33.png)
 
 
 ใน json ตอน npm เราใส่ flag --save-dev แล้ว อิอิ  ```npm install --save-dev```
-![](@attachment/Clipboard_2021-05-26-01-58-12.png)
+![Image](attachments/Clipboard_2021-05-26-01-58-12.png)
 
 
-![](@attachment/Clipboard_2021-05-26-02-02-46.png)
+![Image](attachments/Clipboard_2021-05-26-02-02-46.png)
 
 
 
 ## ทำแบบนี้ตะหาก 5555
 
-![](@attachment/Clipboard_2021-05-26-02-34-27.png)
+![Image](attachments/Clipboard_2021-05-26-02-34-27.png)
 
 [1] Dockerfile
 ```Dockerfile
