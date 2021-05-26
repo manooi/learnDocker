@@ -11,4 +11,13 @@ services:
       - /app/attachments
     environment: 
       - NODE_ENV=development
+      - MONGO_USER=root
+      - MONGO_PASSWORD=example
+      - MONGO_IP
+      - MONGO_PORT
     command: npm run dev
+
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example

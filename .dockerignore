@@ -6,3 +6,4 @@ Dockerfile
 docker-compose*
 attachments
 README.md
+config.js
