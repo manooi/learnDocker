@@ -113,7 +113,7 @@ docker run -v C:\Users\siraw\node-docker:/app -p 3000:3000 -d --name node-app no
 
 
 **หน้าตา Dockerfile ตอนนี้**
-```
+```Dockerfile
 FROM node:15
 WORKDIR /app
 COPY package.json .
@@ -123,7 +123,7 @@ EXPOSE 3000
 CMD ["npm", "run", "dev"]
 ```
 
-```
+```Dockerfile
 FROM node:15
 WORKDIR /app
 COPY package.json .
